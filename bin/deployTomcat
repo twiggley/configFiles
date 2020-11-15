@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+#
+# deploy war to tomcat8
+
+
+warToDeploy=$1
+
+tomcatLocation="/var/lib/tomcat8/webapps/"
+
+if [[ -z "$warToDeploy" ]]; then
+    print "gimme a war, then i copy it to $tomcatLocation";
+    return
+fi
+
+warName="$(echo $warToDeploy | rev | cut -d '/' -f1 | rev)"
+
+echo "accessing $tomcatLocation$warName"
+
+if [[ -r "$tomcatLocation$warName" ]]; then
+    echo "war exists - replace?"
+    read -q replaceWar
+    echo
+    if [[ $replaceWar = y ]]; then
+        echo "replacing war"
+        cp "$warToDeploy" "$tomcatLocation"
+    fi
+else 
+    echo "war doesn't exist"
+    cp "$warToDeploy" "$tomcatLocation"
+fi
+
+
+
+#		read -q makeLinkResponse
+

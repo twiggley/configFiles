@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+#
+# lists processes matching supplied keyword
+
+processSearch=$1
+usage="endProcess: you want to kill something, but just want to run one script. give me a keyword and i'll list processes that match it
+"
+
+if [ -z "$processSearch" ]
+then
+	echo "no param provided, exiting"
+	echo "$usage"
+	exit 1
+fi
+
+function maybeKillProcess {
+	fullString=$@
+
+	select process in $fullString; do
+		pid=$(echo "$process" | cut -f2 -d ' ' )
+		application=$(echo "$process" | cut -f 8- -d ' ' )
+		echo $application
+		pkill $pid
+	done
+
+	#while true; do
+	#	read -p "$application
+	#do you wanna kill this?
+	#" yn;
+	#	case $yn in
+	#		[Yy]* ) pkill $pid; break;;
+	#		* ) echo "not killing it this time"; break;;
+	#	esac
+	#done;
+}
+
+matchingProcesses=$(ps -ef | ag $processSearch)
+
+while IFS= read -u 5 -r line ; do
+	#echo $line
+	pid=$(echo $line | cut -f 2 -d ' ' )
+	#echo $pid
+	application=$(echo $line | cut -f 8- -d ' ' )
+
+	echo "do you wanna kill this?
+$pid: $application"
+		read yn;
+		case $yn in
+			[Yy]* ) echo "killing it!"; pkill $pid;;
+			* ) echo "not killing it this time";;
+		esac
+
+done 5<<< "$matchingProcesses"
+
+#ps -ef | ag $processSearch > temp.txt
+
+#cat temp.txt
+

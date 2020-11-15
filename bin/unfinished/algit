@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+#
+# search through alias for string, pipes to less
+
+
+alias | ag git | tee | less
+
+

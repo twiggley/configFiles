@@ -1,0 +1,98 @@
+#!/usr/bin/env zsh
+#
+# recurisvely scans given directoy, each folder is an application, scans inner folder of each for executable files, 
+# asks you which is correct, then creates a link to it in special dir (which is on PATH). desigend for steam "common" directory
+
+#/home/twig/.local/share/Steam/steamapps/common
+USAGE="recurisvely scans given directoy, each folder is an application, \n scans inner folder of each for executable files, asks you which is correct, \nthen creates a link to it in special dir (which is on PATH). desigend for steam 'common' directory\n\n\n the preceding is left for historical reasons\n"
+
+helpFunction()
+{
+   print ""
+   print  "$USAGE"
+   print "Usage: genSteamLinks steamDir linkDir"
+   print "\tfirst arg: directory to be scanned for applications (steam dir)"
+   print "\tsecond arg: where to generate links - may have contents overwritten!"
+   exit 1 # Exit script after printing help
+}
+
+steamDir=$1
+linkDir=$2
+
+if [ -z "$steamDir" ] || [ -z "$linkDir" ] 
+then
+   print "Some or all of the parameters are empty";
+   helpFunction
+fi
+
+
+create_link() 
+{
+
+fileToLinkTo=$1
+fileName=$(basename "$fileToLinkTo")
+print "filename: $fileName"
+finalLink="$linkDir$fileName"
+print "fulll link: $finalLink"
+print "file im linking: $fileToLinkTo"
+
+if [[ -e $finalLink ]]; then
+	print "something already exists. proceed?"
+	read -q linkCheck
+	if [[ $linkCheck=y ]]; then
+		print "LINK"
+		#ln -fst "$linkDir" "$fileToLinkTo"
+	else
+		print "not overriding link"
+	fi
+else
+	print "HAPPY LINK"
+	ln -st "$linkDir" "$fileToLinkTo"
+fi
+
+}
+
+# Begin script in case all parameters are correct
+print "search location: $steamDir"
+print "link location: $linkDir"
+
+apps="$(find $steamDir -maxdepth 1 -type d -print0 )"
+
+print "directories found:\n$apps"
+
+count=0
+
+# loop through applications
+while IFS= read -r -d $'\0' app;
+do
+	count=0
+    print "current $app"
+	print "look for linkables for this app?"
+	read -q applicationResponse
+	if [[ $applicationResponse = n ]]; then
+		print "skipped"
+		continue
+	fi
+
+	#loop through executables for application
+	while IFS= read -r -d $'\0' file;
+	do
+		#executables=$(find "$steamDir" -mindepth 2 -maxdepth 2 -type f -perm /u=x,g=x,o=x | ag "$file")
+		print "$count: $file"
+
+		count=$((count+1))
+
+
+		print "do you want to create this link in $linkDir?"
+		read -q makeLinkResponse
+		if [[ $makeLinkResponse = y ]]; then
+			print "oh yeah"
+			create_link $file
+		else
+			print "oh"
+		fi
+
+	done < <(find $app -mindepth 1 -maxdepth 1 -type f -perm /u=x,g=x,o=x -print0 )
+done < <(find $steamDir -maxdepth 1 -type d -print0 )
+
+

@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+#
+# you had an idea. new git repo...
+
+
+newIdea=$1
+usage="
+you had an idea. now you want a git repo. give me a name and you'll have one
+"
+
+if [[ -z "$newIdea" ]]; then
+    print "$usage";
+    return
+fi
+
+
+#if [[ $(mkdir -vp /mnt/cross/sharecode/gitrepos/"$newIdea") ]] then;
+#    print "made directory!"
+#else
+#    print "directory probably exists"
+#fi
+mkdir -vp /mnt/cross/sharecode/gitrepos/"$newIdea"
+
+gitRepo="/mnt/cross/sharecode/gitrepos/$newIdea.git"
+
+git init --bare "$gitRepo"
+
+git clone "$gitRepo" ~/git/personal/"$newIdea"
+     
+
