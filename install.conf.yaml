@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      create: true
+
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
+    ~/bin:
+      recursive: true
+
+- create:
+    - ~/bin
+
+- link:
+    ~/.vimrc: vimrc
+    ~/.config/alacritty/alacritty-custom.yaml: alacritty/alacritty-custom.yaml
+    
