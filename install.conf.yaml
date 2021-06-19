@@ -10,9 +10,14 @@
       recursive: true
 
 - create:
-    - ~/bin
+    - ~/.vim/autoload
+    - ~/.config
 
 - link:
-    ~/.vimrc: vimrc
-    ~/.config/alacritty/alacritty-custom.yaml: alacritty/alacritty-custom.yaml
+    ~/.vimrc: vim/vimrc
+    ~/.tmux.conf: tmux.conf
+    ~/bin:
+    ~/.config/fish: config/fish
+    ~/.vim/autoload/plug.vim: vim/plug.vim
+    # ~/.config/alacritty/alacritty-custom.yaml: alacritty/alacritty-custom.yaml
     
