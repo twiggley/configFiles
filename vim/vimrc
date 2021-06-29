@@ -1,18 +1,33 @@
-" mappings
+" twig's vimrc
+"
+" enabling default:
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
-let mapleader=","
-nnoremap <leader>l :ls<CR>
-nnoremap <leader>b :ls<CR>:b
-nnoremap <leader>w <C-w>
-nnoremap <leader>n :set invnumber<CR>
-
-" plugins
+" vim-plug
 
 call plug#begin('~/vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'preservim/nerdtree'
+
+" Plug 'vim-syntastic/syntastic'
+
+" Plug 'ctrlpvim/ctrlp.vim'
+
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Plug  'pangloss/vim-javascript'
+
+" Plug 'othree/yajs.vim'
+
+" Plug 'sbdchd/neoformat'
+
 Plug 'ayu-theme/ayu-vim'
+
+Plug 'udalov/kotlin-vim'
 
 call plug#end()
 
@@ -30,22 +45,32 @@ set termguicolors
 let ayucolor="mirage"
 colorscheme ayu
 
+" mappings
+let mapleader =","
+"nnoremap <leader>t :NERDTree<CR>
+"nnoremap <leader>p :CtrlPTag<CR>
+"nnoremap <leader>f :FZF<CR>
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>b :ls<CR>:b
+nnoremap <leader>w <C-w>
+nnoremap <leader>n :set invnumber<CR>
+
+" who enabled it in the first place?
+set paste
+
+" line numbers on by default
+set nu
+
+" highlight search terms
+set hlsearch
+
+" cya mouse
+set mouse =
+
 " all tabs must die
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-
-" who enabled it in the first place?
-set paste
-
-" highlight search term
-set hlsearch
-
-" line numbers on by default
-set nu
-
-" cya mouse
-set mouse =
 
 
