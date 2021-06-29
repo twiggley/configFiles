@@ -181,67 +181,62 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# c0adb8
+# tom colours:
+schemes:
+  yellow_chocolate: &yellow_chocolate
+    primary:
+      background: '0x1a0e03'
+      foreground: '0xc99060'
+  
+    # Normal colors
+    normal:
+      black:   '0x271308'
+      red:     '0x332012'
+      green:   '0x4a2e14'
+      yellow:  '0x6a411a'
+      blue:    '0x8f5733'
+      magenta: '0xbc784b'
+      cyan:    '0xdd8a47'
+      white:   '0xf0822f'
+  
+    # Bright colors
+    bright:
+      black:   '0x516a6b'
+      red:     '0xa83aa2'
+      green:   '0x888b33'
+      yellow:  '0x5d40d0'
+      blue:    '0x80c0dc'
+      magenta: '0x5c9f4c'
+      cyan:    '0x945fe4'
+      white:   '0x5683e3'
 
-
-# tom generated stuff
-
-# yellow chocolate
-#colors:
-#  # Default colors
+colors: &yellow_chocolate
+  # Default colors
 #  primary:
-#    background: '0x1a0e03'
-#    foreground: '0xc99060'
+#    background: '0x16130f'
+#    foreground: '0xa39a90'
 #
 #  # Normal colors
 #  normal:
-#    black:   '0x271308'
-#    red:     '0x332012'
-#    green:   '0x4a2e14'
-#    yellow:  '0x6a411a'
-#    blue:    '0x8f5733'
-#    magenta: '0xbc784b'
-#    cyan:    '0xdd8a47'
-#    white:   '0xf0822f'
+#    black:   '0x16130f'
+#    red:     '0x826d57'
+#    green:   '0x57826d'
+#    yellow:  '0x6d8257'
+#    blue:    '0x6d5782'
+#    magenta: '0x82576d'
+#    cyan:    '0x576d82'
+#    white:   '0x98570e'
 #
 #  # Bright colors
 #  bright:
-#    black:   '0x516a6b'
-#    red:     '0xa83aa2'
-#    green:   '0x888b33'
-#    yellow:  '0x5d40d0'
-#    blue:    '0x80c0dc'
-#    magenta: '0x5c9f4c'
-#    cyan:    '0x945fe4'
-#    white:   '0x5683e3'
-
-colors:
-  # Default colors
-  primary:
-    background: '0x16130f'
-    foreground: '0xa39a90'
-
-  # Normal colors
-  normal:
-    black:   '0x16130f'
-    red:     '0x826d57'
-    green:   '0x57826d'
-    yellow:  '0x6d8257'
-    blue:    '0x6d5782'
-    magenta: '0x82576d'
-    cyan:    '0x576d82'
-    white:   '0x98570e'
-
-  # Bright colors
-  bright:
-    black:   '0x5a5047'
-    red:     '0x826d57'
-    green:   '0x57826d'
-    yellow:  '0x6d8257'
-    blue:    '0x6d5782'
-    magenta: '0x82576d'
-    cyan:    '0x576d82'
-    white:   '0xdb8127'
+#    black:   '0x5a5047'
+#    red:     '0x826d57'
+#    green:   '0x57826d'
+#    yellow:  '0x6d8257'
+#    blue:    '0x6d5782'
+#    magenta: '0x82576d'
+#    cyan:    '0x576d82'
+#    white:   '0xdb8127'
 
 #colours:
 #  # Default colors
@@ -301,7 +296,7 @@ colors:
 
 
 
-# Colors (Tomorrow Night Bright)
+# Colors (Tomorrow Night)
 #colors:
   # Default colors
   #primary:
