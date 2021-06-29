@@ -1,6 +1,9 @@
 - defaults:
     link:
       create: true
+    shell:
+      stdout: true
+      stderr: true
 
 - clean:
     ~/:
