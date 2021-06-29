@@ -11,13 +11,27 @@
 
 - create:
     - ~/.vim/autoload
-    - ~/.config
+    - ~/.config/fish/functions
+    - ~/.config/alacritty
 
 - link:
     ~/.vimrc: vim/vimrc
     ~/.tmux.conf: tmux.conf
+    ~/.gitalias.txt: git/gitalias.txt
     ~/bin:
-    ~/.config/fish: config/fish
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/functions/vf.fish: fish/functions/vf.fish
+    ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
     ~/.vim/autoload/plug.vim: vim/plug.vim
-    # ~/.config/alacritty/alacritty-custom.yaml: alacritty/alacritty-custom.yaml
-    
+    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+
+- shell:
+    - ./fish/install.fish
+    - git config --global include.path ~/.gitalias.txt
+    - git config --global alias.l ll -n15
+## fisher
+#    - curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+## plugins
+#    - fisher install jethrokuan/fzf
+#    - fisher install edouard-lopez/ayu-theme.fish
+#    - fisher install danhper/fish-ssh-agent
