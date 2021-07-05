@@ -1,0 +1,157 @@
+// vim:ts=4:sw=4:et
+{
+    // stacked split container with 3 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "marks": [],
+    "percent": null,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 960,
+               "width": 1916,
+               "x": 1600,
+               "y": 48
+            },
+            "marks": [],
+            "name": "Siji font with Polybar dropping characters : archlinux — Mozilla Firefox",
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+                  "class": "^firefox$"
+               // "instance": "^Navigator$",
+               // "title": "^Siji\\ font\\ with\\ Polybar\\ dropping\\ characters\\ \\:\\ archlinux\\ \\—\\ Mozilla\\ Firefox$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "none",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1030,
+               "width": 1916,
+               "x": 1602,
+               "y": 48
+            },
+            "marks": [],
+            "name": "Steam",
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+                  "class": "^Steam$"
+               // "instance": "^Steam$",
+               // "title": "^Steam$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splith split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.333333333333333,
+            "type": "con",
+            "nodes": [
+                {
+                    // stacked split container with 2 children
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "layout": "stacked",
+                    "marks": [],
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "normal",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 998,
+                               "width": 956,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "marks": [],
+                            "name": "vim /home/twig/.config",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                  "class": "^kitty$"
+                               // "instance": "^kitty$",
+                               // "title": "^vim\\ \\/home\\/twig\\/\\.config$"
+                               }
+                            ],
+                            "type": "con"
+                        },
+                        {
+                            "border": "normal",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 952,
+                               "width": 1916,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "marks": [],
+                            "name": "i3-save-tree /home/twig/.config/i3/layouts",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                  "class": "^kitty$"
+                               // "instance": "^kitty$",
+                               // "title": "^i3\\-save\\-tree\\ \\/home\\/twig\\/\\.config\\/i3\\/layouts$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                },
+                {
+                    // stacked split container with 1 children
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "layout": "stacked",
+                    "marks": [],
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "normal",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 952,
+                               "width": 1916,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "marks": [],
+                            "name": "man /home/twig",
+                            "percent": null,
+                            "swallows": [
+                               {
+                                  "class": "^kitty$"
+                               // "instance": "^kitty$",
+                               // "title": "^man\\ \\/home\\/twig$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
