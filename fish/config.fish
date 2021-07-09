@@ -5,3 +5,6 @@ if status --is-login
 		#exec sway &> /tmp/sway_$USER_(date "+%y-%m-%dT%H%M%S")
 	end
 end
+
+starship init fish | source
+

@@ -32,8 +32,6 @@ Plug 'udalov/kotlin-vim'
 
 call plug#end()
 
-" theme
-let g:airline_theme='deus'
 " javascript lint
 
 let g:syntastic_javascript_checkers=['eslint']
@@ -59,6 +57,10 @@ endif
 " set termguicolors
 " let ayucolor="mirage"
 " colorscheme ayu
+colorscheme base16-darktooth
+
+" airline theme
+let g:airline_theme='base16_darktooth'
 
 " mappings
 let mapleader =","

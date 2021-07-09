@@ -11,9 +11,12 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 # plugins install
 fisher install jethrokuan/fzf
-fisher install edouard-lopez/ayu-theme.fish
+#fisher install edouard-lopez/ayu-theme.fish
+fisher install tomyun/base16-fish
 fisher install danhper/fish-ssh-agent
 
 # ayu initialise
-set --universal ayu_variant light && ayu_load_theme
+# set --universal ayu_variant light && ayu_load_theme
+
+base16-darktooth
 
