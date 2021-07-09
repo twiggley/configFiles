@@ -112,7 +112,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: monofur for Powerline
-    family: DejaVu Sans Mono for Powerline
+    family: Liberation Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -124,7 +124,7 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monofur for Powerline
-    family: DejaVu Sans Mono for Powerline
+    family: Liberation Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -137,7 +137,7 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monofur for Powerline
-    family: DejaVu Sans Mono for Powerline
+    family: Liberation Mono
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -150,13 +150,13 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monofur for Powerline
-    family: DejaVu Sans Mono for Powerline
+    family: Liberation Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -210,7 +210,106 @@ schemes:
       cyan:    '0x945fe4'
       white:   '0x5683e3'
 
-colors: &yellow_chocolate
+  # Colors (Dracula)
+  dracula: &dracula
+    # Default colors
+    primary:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+
+    # Normal colors
+    normal:
+      black:   '#000000'
+      red:     '#ff5555'
+      green:   '#50fa7b'
+      yellow:  '#f1fa8c'
+      blue:    '#caa9fa'
+      magenta: '#ff79c6'
+      cyan:    '#8be9fd'
+      white:   '#bfbfbf'
+
+    # Bright colors
+    bright:
+      black:   '#575b70'
+      red:     '#ff6e67'
+      green:   '#5af78e'
+      yellow:  '#f4f99d'
+      blue:    '#caa9fa'
+      magenta: '#ff92d0'
+      cyan:    '#9aedfe'
+      white:   '#e6e6e6'
+
+  # Colors (Monokai Pro)
+  monkokai_pro: &monokai_pro
+    # Default colors
+    primary:
+      background: '#2D2A2E'
+      foreground: '#FCFCFA'
+
+    # Normal colors
+    normal:
+      black:   '#403E41'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+    # Bright colors
+    bright:
+      black:   '#727072'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+  # Colors (Darktooth)
+  darktooth: &darktooth
+  
+    # Default colors
+    primary:
+      background: '#282828'
+      foreground: '#fdf4c1'
+  
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614'
+      blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#00a7af'
+      white:   '#fdf4c1'
+  
+    # Bright colors
+    bright:
+      black:   '#32302f'
+      red:     '#fb4933'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#3fd7e5'
+      white:   '#ffffc8'
+  
+    # Dim colors (Optional)
+    dim:
+      black:   '#1d2021'
+      red:     '#421e1e'
+      green:   '#232b0f'
+      yellow:  '#4d3b27'
+      blue:    '#2b3c44'
+      magenta: '#4e3d45'
+      cyan:    '#205161'
+      white:   '#f4e8ba'
+
+#colors: *darktooth
   # Default colors
 #  primary:
 #    background: '0x16130f'
