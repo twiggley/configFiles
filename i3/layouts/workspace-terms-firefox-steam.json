@@ -86,8 +86,8 @@
                             "percent": 0.5,
                             "swallows": [
                                {
-                                  "class": "^kitty$"
-                               // "instance": "^kitty$",
+                                  "class": "^Alacritty$"
+                               // "instance": "^Alacritty$",
                                // "title": "^vim\\ \\/home\\/twig\\/\\.config$"
                                }
                             ],
@@ -108,8 +108,8 @@
                             "percent": 0.5,
                             "swallows": [
                                {
-                                  "class": "^kitty$"
-                               // "instance": "^kitty$",
+                                  "class": "^Alacritty$"
+                               // "instance": "^Alacritty$",
                                // "title": "^i3\\-save\\-tree\\ \\/home\\/twig\\/\\.config\\/i3\\/layouts$"
                                }
                             ],
@@ -141,8 +141,8 @@
                             "percent": null,
                             "swallows": [
                                {
-                                  "class": "^kitty$"
-                               // "instance": "^kitty$",
+                                  "class": "^Alacritty$"
+                               // "instance": "^Alacritty$",
                                // "title": "^man\\ \\/home\\/twig$"
                                }
                             ],

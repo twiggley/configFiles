@@ -16,16 +16,16 @@ killall -q polybar
 
 POLYBARBAR=twig
 
-if command -v "xrandr" 2>&1 > /dev/null; then
+#if command -v "xrandr" 2>&1 > /dev/null; then
   for m in $(polybar -m | cut -d":" -f1); do
     MONITOR=$m polybar --reload $POLYBARBAR >> /tmp/polybar-$USER-$POLYBARBAR-$m.log 2>&1 &
   done
   # monitor position rearranging
   #xrandr --output DP-3 --left-of DVI-D-1
   #start_polybar_with_log
-else
-  polybar --reload $POLYBARBAR  >> /tmp/polybar-$USER-$POLYBARBAR.log 2>&1 &
-fi
+#else
+#  polybar --reload $POLYBARBAR  >> /tmp/polybar-$USER-$POLYBARBAR.log 2>&1 &
+#fi
 
 
 # just alsamixer things
