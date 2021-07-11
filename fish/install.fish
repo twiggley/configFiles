@@ -1,13 +1,11 @@
 #!/usr/bin/env fish
 
 if ! command -v fisher; 
-    echo fisher already installed, upgrading
-    fisher update
-	exit;
+    echo fisher already installed
+else
+    # fisher
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
-
-# fisher
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 # plugins install
 fisher install jethrokuan/fzf

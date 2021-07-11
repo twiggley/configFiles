@@ -15,7 +15,7 @@
     - ~/.vim/autoload
     - ~/.config/fish/functions
     - ~/.config/alacritty
-  
+    - ~/.config/starship
 
 - link:
     ~/.vimrc: vim/vimrc
@@ -29,11 +29,12 @@
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
     ~/.config/polybar: polybar
     ~/.config/i3: i3
+    ~/.config/starship/starship.toml: starship/starship.toml
 
 - shell:
     - ./fish/install.fish
     - git config --global include.path ~/.gitalias.txt
-    - git config --global alias.l ll -n15
+    - git config --global alias.l "ll -n15"
 ## fisher
 #    - curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ## plugins

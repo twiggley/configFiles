@@ -16,6 +16,7 @@ killall -q polybar
 
 POLYBARBAR=twig
 
+
 #if command -v "xrandr" 2>&1 > /dev/null; then
   for m in $(polybar -m | cut -d":" -f1); do
     MONITOR=$m polybar --reload $POLYBARBAR >> /tmp/polybar-$USER-$POLYBARBAR-$m.log 2>&1 &

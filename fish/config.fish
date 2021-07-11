@@ -1,10 +1,19 @@
 if status --is-login
-	# start sway
 	if test (tty) = '/dev/tty1'
-		exec sway &> /tmp/sway_(date "+%y-%m-%dT%H%M%S")
-		#exec sway &> /tmp/sway_$USER_(date "+%y-%m-%dT%H%M%S")
+        # sway
+        if command -v sway > /dev/null 2>&1
+            exec sway > /tmp/sway-$USER-(date "+%y-%m-%dT%H%M%S").log 2>&1
+        # x
+        else if command -v startx > /dev/null 2>&1
+            exec startx > /tmp/startx-$USER-(date "+%y-%m-%dT%H%M%S").log 2>&1
+        # oh shit
+        else
+            echo no display manager 
+        end
 	end
 end
 
-starship init fish | source
+if command -v starship > /dev/null 2>&1
+    starship init fish | source
+end
 
