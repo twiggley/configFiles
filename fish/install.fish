@@ -8,8 +8,7 @@ else
 end
 
 # plugins install
-fisher install jethrokuan/fzf
-#fisher install edouard-lopez/ayu-theme.fish
+fisher install patrickf1/fzf
 fisher install tomyun/base16-fish
 fisher install danhper/fish-ssh-agent
 

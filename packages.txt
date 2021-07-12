@@ -1,4 +1,5 @@
 git
+fzf
 fish
 vim
 fortune-mod
