@@ -4,9 +4,9 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/language"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/language", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "disk", "temperature", "battery", "clock"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -75,6 +75,9 @@
     },
     "memory": {
         "format": "{}% "
+    },
+    "disk": {
+        "format": " {path} {percentage_used}% "
     },
     "temperature": {
         // "thermal-zone": 2,
