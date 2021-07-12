@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-if ! command -v fisher; 
+if command -v fisher; 
     echo fisher already installed
 else
     # fisher

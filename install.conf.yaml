@@ -8,6 +8,10 @@
 - clean:
     ~/:
     ~/.config:
+    ~/.config/alacritty:
+    ~/.config/starship:
+    ~/.config/fish:
+    ~/.config/fish/functions:
     ~/bin:
       recursive: true
 
@@ -27,6 +31,8 @@
     ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
     ~/.vim/autoload/plug.vim: vim/plug.vim
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+    ~/.config/waybar: waybar
+    ~/.config/sway: sway
     ~/.config/polybar: polybar
     ~/.config/i3: i3
     ~/.config/starship/starship.toml: starship/starship.toml

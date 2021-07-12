@@ -1,0 +1,12 @@
+git
+fish
+vim
+fortune-mod
+starship
+figlet
+sway
+waybar
+i3
+polybar
+alacritty
+
