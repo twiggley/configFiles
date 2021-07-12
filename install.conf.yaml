@@ -35,7 +35,7 @@
     ~/.config/sway: sway
     ~/.config/polybar: polybar
     ~/.config/i3: i3
-    ~/.config/starship/starship.toml: starship/starship.toml
+    ~/.config/starship.toml: starship/starship.toml
 
 - shell:
     - ./fish/install.fish
