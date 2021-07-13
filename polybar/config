@@ -79,7 +79,7 @@ module-margin-right = 2
 ;font-0 = Goudy Bookletter 1911:size=14;2
 font-0 = NotoSerifDisplay Nerd Font Bold:size=11;0
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-1 = Material Icons:format=truetype:antialias=false:size=12;0
+font-1 = Font Awesome 5 Brands:format=truetype:antialias=false:size=12;0
 ;font-2 = siji:pixelsize=10;1
 ;font-2 = Material Icons:format=truetype:antialias=false:size=12;0
 font-2 = Iosevka Nerd Font:size=12;4
@@ -136,9 +136,9 @@ interval = 25
 mount-0 = /
 
 ;colors.blue
-label-mounted = %{F#42A5F5}%mountpoint%%{F-}: %percentage_used%%-%free%
+label-mounted =   %{F#42A5F5}%mountpoint%%{F-} %percentage_used%%-%free%
 label-mounted-foreground = ${colours.foreground}
-label-unmounted = %mountpoint% not mounted
+label-unmounted =  %mountpoint% not mounted
 label-unmounted-foreground = ${colours.magenta}
 
 [module/bspwm]
@@ -248,7 +248,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colours.lime}
 #format-underline = #f90000
 label = %percentage:2%%
@@ -256,7 +256,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colours.teal}
 #format-underline = #4bffdc
 label = %percentage_used%%
@@ -326,12 +326,12 @@ label-volume = %percentage%%
 format-volume-foreground = ${colours.blue-gray}
 label-volume-foreground = ${colours.blue-gray}
 
-label-muted =  muted
+label-muted =  muted
 label-muted-foreground = ${colours.blue-gray}
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
