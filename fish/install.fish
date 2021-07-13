@@ -8,7 +8,7 @@ else
 end
 
 # plugins install
-fisher install patrickf1/fzf
+fisher install PatrickF1/fzf.fish
 fisher install tomyun/base16-fish
 fisher install danhper/fish-ssh-agent
 
