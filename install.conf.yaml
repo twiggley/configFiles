@@ -27,8 +27,11 @@
     ~/.gitalias.txt: git/gitalias.txt
     ~/bin:
     ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/functions/vf.fish: fish/functions/vf.fish
-    ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
+    ~/.config/fish/functions: 
+      glob: true
+      path: fish/functions/*
+#    ~/.config/fish/functions/vf.fish: fish/functions/vf.fish
+#    ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
     ~/.vim/autoload/plug.vim: vim/plug.vim
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
     ~/.config/waybar: waybar
