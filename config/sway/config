@@ -26,7 +26,7 @@ set $browser firefox
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/twig/files/spacecat.jpg fill
+output * bg /home/twig/.config/sway/spacecat.jpg fill
 #
 # Example configuration:
 #
