@@ -1,0 +1,4 @@
+# gets pacman to install all non-synced packages.
+# 
+# will reinstall packages that have been removed with pacman but not from local repo
+aur repo -aq | sudo pacman -S --needed -

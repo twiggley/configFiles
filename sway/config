@@ -18,21 +18,32 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run
+#set $menu bemenu-run
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+# sway-launcher-desktop things
+for_window [app_id="^launcher$"] floating enable, sticky enable, border pixel 10
+set $menu exec $term --class=launcher -e /usr/bin/sway-launcher-desktop
+
 # Your preferred web browser?
 set $browser firefox
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/twig/media/pics/m5yp_mreldritch_dc.jpg fill
+output * bg /home/twig/Downloads/themindasashoclwave.jpg fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+#output DP-2 pos 0 0
+#output DP-1 pos 1600 0
+#output HDMI-A-1 pos 3520 0
+output DP-2 pos 0 0
+output DP-3 pos 1600 0
+output DP-1 pos 4160 0
 
 ### Idle configuration
 #
@@ -63,7 +74,7 @@ output * bg /home/twig/media/pics/m5yp_mreldritch_dc.jpg fill
 
 input "type:keyboard" {
 	xkb_layout gb
-	#xkb_numlock enabled
+	xkb_numlock enabled
 }
 
 ### Key bindings
@@ -219,6 +230,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id light -r -A 200
 bindsym XF86MonBrightnessDown exec --no-startup-id light -r -U 200
 
+# screenshot
+bindsym Print exec GRIM_DEFAULT_DIR=/home/twig/files/screenies/ grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+
 #
 # exit handling
 #
@@ -243,6 +257,16 @@ bindsym $mod+Shift+e mode "leaving"; exec swaynag -t warning -m 'not many option
 # general settings
 #
 focus_follows_mouse no
+
+#
+# visual customisation
+font Liberation Sans 10
+
+#
+# size
+titlebar_border_thickness 1
+titlebar_padding 2
+
 
 #
 # colours

@@ -1,4 +1,10 @@
 if status --is-login
+    # audio logic for desktop
+    #set -ul headset_name (pactl list sinks short | grep G432 | cut -f 2)
+    #if test (count $headset_name) -eq 1
+    #    pactl set-default-sink $headset_name
+    #end
+
 	if test (tty) = '/dev/tty1'
         # sway
         if command -v sway > /dev/null 2>&1
