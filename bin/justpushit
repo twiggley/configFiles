@@ -1,0 +1,18 @@
+#!/usr/bin/env fish
+#
+# make a commit, add everything, use message if one was provided
+
+if test -z argv[1]
+    set __commit_msg argv[1]
+else
+    echo "using default message"
+    set __commit_msg "scripted push because lazy"
+end
+
+# seems this is hte only way to check for untracked files too
+if test -n (git status --porcelain)
+    git add -A
+    git commit -m $__commit_msg
+    git push
+end
+
