@@ -1,0 +1,22 @@
+#!/usr/bin/env fish
+#
+# push logseq 
+
+set __logseq_repo_location $HOME/files/notes
+
+if set -q "logseq_repo_location"
+    echo using existing
+    set -x __logseq_repo_location logseq_repo_location
+end
+
+echo "directory is $__logseq_repo_location"
+
+
+git add -A -C $__logseq_repo_location
+
+git commit -m "normal update" -C $__logseq_repo_location
+
+git pull --rebase -C $__logseq_repo_location
+
+git push origin HEAD
+

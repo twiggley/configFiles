@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+# hacky python shite
+
+set -e pvars; for i in (seq 5); set -a pvars (sed -n (python -c "import secrets; print(secrets.choice(range(1,"(wc -l ~/files/wlist/words.txt | cut -f1 -d ' ')")))")p ~/files/wlist/words.txt); end; echo (string join '' $pvars);
