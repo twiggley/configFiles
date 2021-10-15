@@ -14,5 +14,7 @@ if test -n (git status --porcelain)
     git add -A
     git commit -m $__commit_msg
     git push
+else
+    echo "no diff, no commit"
 end
 
