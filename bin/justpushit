@@ -9,8 +9,9 @@ else
     set __commit_msg "scripted push because lazy"
 end
 
-# seems this is hte only way to check for untracked files too
-if test -n (git status --porcelain)
+# seems this is the only way to check for untracked files too
+# test -n seems like should work, but posix and shite and i don't get it but here we are
+if count (git status --porcelain)
     git add -A
     git commit -m $__commit_msg
     git push
