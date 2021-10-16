@@ -2,16 +2,16 @@
 #
 # make a commit, add everything, use message if one was provided
 
-if test -z argv[1]
-    set __commit_msg argv[1]
+if count $argv[1] > /dev/null 2>&1
+    set __commit_msg $argv[1]
 else
     echo "using default message"
     set __commit_msg "scripted push because lazy"
 end
 
+# test -n seems like should work, but posix and shite and i don't get it but we gotta count
 # seems this is the only way to check for untracked files too
-# test -n seems like should work, but posix and shite and i don't get it but here we are
-if count (git status --porcelain)
+if count (git status --porcelain) > /dev/null 2>&1
     git add -A
     git commit -m $__commit_msg
     git push
