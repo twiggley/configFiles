@@ -9,7 +9,7 @@ end
 
 # plugins install
 fisher install PatrickF1/fzf.fish
-fisher install tomyun/base16-fish
+fisher install twiggley/base16-fish
 fisher install danhper/fish-ssh-agent
 
 # ayu initialise
