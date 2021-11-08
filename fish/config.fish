@@ -19,7 +19,7 @@ if status --is-login
 	end
 end
 
-if command -v starship > /dev/null 2>&1
-    starship init fish | source
-end
+#if command -v starship > /dev/null 2>&1
+#    starship init fish | source
+#end
 
