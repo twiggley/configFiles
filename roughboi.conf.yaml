@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      create: true
+    shell:
+      stdout: true
+      stderr: true
+
+- clean:
+    ~/:
+    ~/.config:
+    ~/.config/alacritty:
+
+- create:
+    - ~/.config/alacritty
+    - ~/.config/starship
+    - ~/.config/kak
+
+- link:
+    ~/.config/fish/config.fish: roughboi/config.fish
+    #~/.config/alacritty/alacritty.yml: alacritty/alacritty-roughboi.yml
+    ~/.config/waybar: roughboi/waybar
+    ~/.config/sway: roughboi/sway
+
+- shell:
+    - ./fish/install.fish
+    - git config --global include.path ~/.gitalias.txt
+    - git config --global alias.l "ll -n15"
+
