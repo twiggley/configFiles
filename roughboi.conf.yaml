@@ -1,6 +1,7 @@
 - defaults:
     link:
       create: true
+      relink: true
     shell:
       stdout: true
       stderr: true
@@ -21,8 +22,7 @@
     ~/.config/waybar: roughboi/waybar
     ~/.config/sway: roughboi/sway
 
-- shell:
-    - ./fish/install.fish
-    - git config --global include.path ~/.gitalias.txt
-    - git config --global alias.l "ll -n15"
-
+# shell:
+#   - ./fish/install.fish
+#   - git config --global include.path ~/.gitalias.txt
+#   - git config --global alias.l "ll -n15"
