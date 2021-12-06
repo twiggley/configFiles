@@ -10,6 +10,7 @@
     ~/.config:
     ~/.config/alacritty:
     ~/.config/starship:
+    ~/.config/kak:
     ~/.config/fish:
     ~/.config/fish/functions:
     ~/bin:
@@ -20,6 +21,7 @@
     - ~/.config/fish/functions
     - ~/.config/alacritty
     - ~/.config/starship
+    - ~/.config/kak
 
 - link:
     ~/.vimrc: vim/vimrc
@@ -38,7 +40,7 @@
     ~/.config/sway: sway
     ~/.config/polybar: polybar
     ~/.config/i3: i3
-    ~/.config/kak: kak
+    ~/.config/kak/kakrc: kak/kakrc
     ~/.config/starship.toml: starship/starship.toml
 
 - shell:

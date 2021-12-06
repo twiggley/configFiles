@@ -4,9 +4,9 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["clock", "battery", "sway/workspaces", "sway/mode", "sway/language", "tray"],
+    "modules-left": ["clock", "sway/language", "temperature", "backlight", "tray", "sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "network", "pulseaudio", "cpu", "memory", "disk", "temperature"],
+    "modules-right": ["idle_inhibitor", "network", "pulseaudio", "cpu", "memory", "disk", "battery"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -67,7 +67,8 @@
     "clock": {
         "timezone": "Europe/London",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+		"format": "{:%e %b, %H:%M}",
+        "format-alt": "{:%Y-%m-%d %X}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -90,7 +91,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format-icons": ["",""]
     },
     "battery": {
         "states": {
