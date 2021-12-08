@@ -1,0 +1,24 @@
+# config file for swaylock
+# 
+# see man swaylock for instructions
+
+
+indicator-radius=60
+indicator-thickness=10
+
+# show-keyboard-layout
+
+# little line between ring and inside shouldn't be coloured differently
+line-uses-ring
+
+# colours
+# finding good ones is a pain, separator is same for all colors, abort
+
+#ring-color=0FC22DFF
+#inside-color=0FC22D99
+#text-color=00000000
+#
+#key-hl-color=52EF10FF
+#bs-hl-color=F31D0CFF
+
+

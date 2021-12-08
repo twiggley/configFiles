@@ -38,6 +38,7 @@
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
     ~/.config/waybar: waybar
     ~/.config/sway: sway
+    ~/.config/swaylock: swaylock
     ~/.config/polybar: polybar
     ~/.config/i3: i3
     ~/.config/kak/kakrc: kak/kakrc
