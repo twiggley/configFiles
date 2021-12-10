@@ -31,7 +31,7 @@ set $browser firefox
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/twig/Downloads/5053_astro.png fill
+output * bg ~/Downloads/5053_astro.png fill
 #
 # Example configuration:
 #
