@@ -32,6 +32,7 @@ set $browser firefox
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Downloads/5053_astro.png fill
+
 #
 # Example configuration:
 #

@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+    shell:
+      stdout: true
+      stderr: true
+
+#- clean:
+
+- shell:
+    - ./hosts/hostFilesGen.fish shinyboi
+
+- create:
+    - ~/.config/fish
+    - ~/.config/sway
+    - ~/.config/waybar
+
+- link:
+    ~/.config/fish/config.fish: hosts/generated/shinyboi/fish/config.fish
+    ~/.config/waybar/style.css: hosts/generated/shinyboi/waybar/style.css
+    ~/.config/sway/config: hosts/generated/shinyboi/sway
+

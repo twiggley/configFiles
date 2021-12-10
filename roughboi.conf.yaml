@@ -9,20 +9,17 @@
 - clean:
     ~/:
     ~/.config:
-    ~/.config/alacritty:
+    ~/.config/fish:
+
+- shell:
+    - ./hosts/hostFilesGen.fish roughboi
 
 - create:
-    - ~/.config/alacritty
-    - ~/.config/starship
-    - ~/.config/kak
+    - ~/.config/fish
+    - ~/.config/sway
+    - ~/.config/waybar
 
 - link:
-    ~/.config/fish/config.fish: roughboi/config.fish
-    #~/.config/alacritty/alacritty.yml: alacritty/alacritty-roughboi.yml
-    ~/.config/waybar: roughboi/waybar
-    ~/.config/sway: roughboi/sway
+    ~/.config/fish/config.fish: hosts/generated/roughboi/fish/config.fish
+    ~/.config/waybar: hosts/generated/roughboi/waybar
 
-# shell:
-#   - ./fish/install.fish
-#   - git config --global include.path ~/.gitalias.txt
-#   - git config --global alias.l "ll -n15"

@@ -46,6 +46,7 @@
 
 - shell:
     - ./fish/install.fish
+    - ./hosts/hostFilesGen.fish roughboi
     - git config --global include.path ~/.gitalias.txt
     - git config --global alias.l "ll -n15"
 ## fisher
