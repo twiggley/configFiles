@@ -82,7 +82,7 @@
                                "y": 0
                             },
                             "marks": [],
-                            "name": "vim /home/twig/.config",
+                            "name": "vim ~/.config",
                             "percent": 0.5,
                             "swallows": [
                                {
@@ -104,7 +104,7 @@
                                "y": 0
                             },
                             "marks": [],
-                            "name": "i3-save-tree /home/twig/.config/i3/layouts",
+                            "name": "i3-save-tree ~/.config/i3/layouts",
                             "percent": 0.5,
                             "swallows": [
                                {
@@ -137,7 +137,7 @@
                                "y": 0
                             },
                             "marks": [],
-                            "name": "man /home/twig",
+                            "name": "man ~",
                             "percent": null,
                             "swallows": [
                                {

@@ -3,7 +3,7 @@
 # recurisvely scans given directoy, each folder is an application, scans inner folder of each for executable files, 
 # asks you which is correct, then creates a link to it in special dir (which is on PATH). desigend for steam "common" directory
 
-#/home/twig/.local/share/Steam/steamapps/common
+#~/.local/share/Steam/steamapps/common
 USAGE="recurisvely scans given directoy, each folder is an application, \n scans inner folder of each for executable files, asks you which is correct, \nthen creates a link to it in special dir (which is on PATH). desigend for steam 'common' directory\n\n\n the preceding is left for historical reasons\n"
 
 helpFunction()

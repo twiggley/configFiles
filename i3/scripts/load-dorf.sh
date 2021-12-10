@@ -4,5 +4,5 @@
 
 TERMINAL=alacritty
 
-i3-msg "workspace 1; append_layout /home/twig/.config/i3/layouts/workspace-dorf.json"
+i3-msg "workspace 1; append_layout ~/.config/i3/layouts/workspace-dorf.json"
 

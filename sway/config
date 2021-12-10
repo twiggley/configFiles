@@ -235,7 +235,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
 
 # screenshot
-bindsym Print exec GRIM_DEFAULT_DIR=/home/twig/files/screenies/ grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+bindsym Print exec GRIM_DEFAULT_DIR=~/files/screenies/ grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
 #
 # general settings
