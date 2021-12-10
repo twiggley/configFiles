@@ -1,6 +1,7 @@
 - defaults:
     link:
       create: true
+      relink: true
     shell:
       stdout: true
       stderr: true
@@ -9,10 +10,9 @@
     ~/:
     ~/.config:
     ~/.config/alacritty:
-    ~/.config/starship:
     ~/.config/kak:
     ~/.config/fish:
-    ~/.config/fish/functions:
+      recursive: true
     ~/bin:
       recursive: true
 
@@ -32,8 +32,6 @@
     ~/.config/fish/functions: 
       glob: true
       path: fish/functions/*
-#    ~/.config/fish/functions/vf.fish: fish/functions/vf.fish
-#    ~/.config/fish/functions/fish_greeting.fish: fish/functions/fish_greeting.fish
     ~/.vim/autoload/plug.vim: vim/plug.vim
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
     ~/.config/waybar: waybar
@@ -46,12 +44,6 @@
 
 - shell:
     - ./fish/install.fish
-    - ./hosts/hostFilesGen.fish roughboi
     - git config --global include.path ~/.gitalias.txt
     - git config --global alias.l "ll -n15"
-## fisher
-#    - curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-## plugins
-#    - fisher install jethrokuan/fzf
-#    - fisher install edouard-lopez/ayu-theme.fish
-#    - fisher install danhper/fish-ssh-agent
+
