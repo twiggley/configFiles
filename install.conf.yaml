@@ -39,6 +39,7 @@
     ~/.config/swaylock: swaylock
     ~/.config/polybar: polybar
     ~/.config/i3: i3
+    ~/.config/wlogout: wlogout
     ~/.config/kak/kakrc: kak/kakrc
     ~/.config/starship.toml: starship/starship.toml
 

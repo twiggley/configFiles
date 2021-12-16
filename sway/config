@@ -300,6 +300,8 @@ mode "leaving" {
 
 	bindsym r mode "default";exec reboot
 
+	bindsym h mode "default";exec systemctl hibernate
+
 	bindsym s mode "default";exec shutdown -P now
 
 	bindsym e mode "default";exit
@@ -307,9 +309,9 @@ mode "leaving" {
 	bindsym Return mode "default";exec killall swaynag
 	bindsym Escape mode "default";exec killall swaynag
 }
+bindsym $mod+Shift+e mode "leaving"; exec swaynag -t warning -m 'not many options left: (l) lock, (e) exit sway, (h) hibernate, (s) shutdown, (r) reboot' --background $base00 --text $base05 --border $base01 --border-bottom $base02 --button-text $base02 --button-background $base00
 
-bindsym $mod+Shift+e mode "leaving"; exec swaynag -t warning -m 'not many options left: (l) lock, (e) exit sway, (s) shutdown, (r) reboot' --background $base00 --text $base05 --border $base01 --border-bottom $base02 --button-text $base02 --button-background $base00
-
+bindsym $mod+Shift+t exec wlogout
 
 #
 # Status Bar:

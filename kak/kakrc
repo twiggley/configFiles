@@ -12,6 +12,10 @@ plug "occivink/kakoune-buffer-switcher"
 
 plug "crizan/kak-rainbower"
 
+plug "lePerdu/kakboard" %{
+    hook global WinCreate .* %{ kakboard-enable }
+}
+
 plug "kak-lsp/kak-lsp" do %{
     cargo build --release --locked
     cargo install --force --path .
@@ -35,7 +39,7 @@ plug "kak-lsp/kak-lsp" do %{
     hook global WinSetOption filetype=(c|cpp|cc|rust|javascript|typescript) %{
         set-option window lsp_auto_highlight_references true
         set-option window lsp_hover_anchor false
-        lsp-auto-hover-enable
+        # lsp-auto-hover-enable
         echo -debug "Enabling LSP for filtetype %opt{filetype}"
         lsp-enable-window
     }
@@ -54,10 +58,12 @@ plug "kak-lsp/kak-lsp" do %{
 
     hook global KakEnd .* lsp-exit
 }
-
+# options
 set-option global tabstop 4
 
 add-highlighter global/ number-lines
+
+map global normal <c-space> ':lsp-hover<ret>'
 
 colorscheme gruvbox-dark
 
