@@ -298,13 +298,13 @@ mode "leaving" {
         #timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
         #before-sleep 'swaylock -f -c 000000'>> /tmp/idlelog 2>&1
 
-	bindsym r mode "default";exec reboot
+	bindsym r mode "default";exec killall swaynag && reboot
 
-	bindsym h mode "default";exec systemctl hibernate
+	bindsym h mode "default";exec killall swaynag && systemctl hibernate
 
-	bindsym s mode "default";exec shutdown -P now
+	bindsym s mode "default";exec killall swaynag && shutdown -P now
 
-	bindsym e mode "default";exit
+	bindsym e mode "default";exec killall swaynag && swaymsg exit
 
 	bindsym Return mode "default";exec killall swaynag
 	bindsym Escape mode "default";exec killall swaynag
