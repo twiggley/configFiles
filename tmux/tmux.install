@@ -1,0 +1,14 @@
+#!/usr/bin/env fish
+
+if [ ! -e ~/.tmux/plugins ]
+	echo "couldn't find tpm tmux plugin dir, creating"
+	mkdir -p ~/.tmux/plugins/
+
+end
+
+if [ ! -e ~/.tmux/plugins/tpm ]
+	echo "couldn't find tpm plugin, cloning tpm"
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+end
+

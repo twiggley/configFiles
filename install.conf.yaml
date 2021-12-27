@@ -25,7 +25,7 @@
 
 - link:
     ~/.vimrc: vim/vimrc
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux/tmux.conf
     ~/.gitalias.txt: git/gitalias.txt
     ~/bin:
     ~/.config/fish/config.fish: fish/config.fish
@@ -45,6 +45,7 @@
 
 - shell:
     - ./fish/install.fish
+    - ./tmux/tmux.install
     - git config --global include.path ~/.gitalias.txt
     - git config --global alias.l "ll -n15"
 

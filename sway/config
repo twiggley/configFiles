@@ -82,6 +82,11 @@ input "type:keyboard" {
 	xkb_numlock enabled
 }
 
+input "type:touchpad" {
+	tap enabled
+	dwt enabled
+}
+
 ### Key bindings
 #
 # Basics:
