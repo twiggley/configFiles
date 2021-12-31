@@ -34,7 +34,8 @@ $extra_plugins"
 # ayu initialise
 # set --universal ayu_variant light && ayu_load_theme
 
-#base16-darktooth
-base16-qualia
+# base16-darktooth
+# base16-qualia
+base16-gruvbox-dark-soft
 
 

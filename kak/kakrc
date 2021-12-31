@@ -69,5 +69,6 @@ set-option global tabstop 4
 
 add-highlighter global/ number-lines
 
-colorscheme gruvbox-dark
+# colours (currently just using base16 defaults
+# colorscheme gruvbox-dark
 
