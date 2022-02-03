@@ -5,6 +5,11 @@ if status --is-login
     #    pactl set-default-sink $headset_name
     #end
 
+    # gnome keyring
+    if command -v gnome-keyring-daemon
+        set -x (gnome-keyring-daemon --start | string split "=")
+    end
+
     if test (tty) = '/dev/tty1'
         # sway
         if command -v sway > /dev/null 2>&1
