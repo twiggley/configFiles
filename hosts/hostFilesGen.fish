@@ -29,5 +29,6 @@ else if test $host_profile = "shinyboi"
 
     mkdir -p "$generated_dir/fish"
 	sed -E "/if command \-v starship/,+3d" fish/config.fish > "$generated_dir/fish/config.fish"
+	sed -E "s/(set mybase16 ).*/\1gruvbox-dark-soft/g" fish/install.fish > "$generated_dir/fish/install.fish"
 end
 

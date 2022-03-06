@@ -36,6 +36,7 @@ $extra_plugins"
 
 # base16-darktooth
 # base16-qualia
-base16-gruvbox-dark-soft
+set mybase16 qualia
+base16-$mybase16
 
 

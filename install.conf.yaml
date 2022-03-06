@@ -48,4 +48,5 @@
     - ./tmux/tmux.install
     - git config --global include.path ~/.gitalias.txt
     - git config --global alias.l "ll -n15"
+    - git config --global pull.rebase "interactive"
 
