@@ -10,6 +10,7 @@
 
 - shell:
     - ./hosts/hostFilesGen.fish shinyboi
+    - ./hosts/generated/shinyboi/fish/install.fish
 
 - create:
     - ~/.config/fish
