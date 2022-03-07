@@ -5,11 +5,6 @@ if status --is-login
     #    pactl set-default-sink $headset_name
     #end
 
-    # gnome keyring
-    if command -v gnome-keyring-daemon
-        set -x (gnome-keyring-daemon --start | string split "=")
-    end
-
     if test (tty) = '/dev/tty1'
         # sway
         if command -v sway > /dev/null 2>&1
@@ -23,6 +18,8 @@ if status --is-login
         end
     end
 end
+
+set -Ux GPG_TTY (tty)
 
 if command -v starship > /dev/null 2>&1
     starship init fish | source
