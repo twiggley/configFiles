@@ -1,0 +1,22 @@
+#!/usr/bin/env fish
+# use bluez
+
+bluetoothctl power on
+
+# bluetoothctl scan on | 
+#     while read -d '\n' blueline;
+#     echo "line of output: $blueline"
+#     if grep -q "Discovery" $blueline; then
+#         echo $blueline
+#     end
+# end
+
+# timeout 20 bluetoothctl scan on &
+
+# wait 4
+
+bluetoothctl connect F8:DF:15:34:E6:38
+
+
+#(bluetoothctl scan on &) | grep "F8:DF:15:34:E6:38" && bluetoothctl pair F8:DF:15:34:E6:38
+

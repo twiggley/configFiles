@@ -1,0 +1,75 @@
+#!/usr/bin/env fish
+
+# echo $argv
+
+argparse 'u/username=' 'n/name=' 'p/pass=' 'l/url=+' 'r/help' 'f/folder=' -- $argv
+or return 
+
+# echo "variables: name: $_flag_n , user: $_flag_u , pass: $_flag_p, url: $_flag_l, folder: $_flag_f" >&2
+
+set _bwCreateItem_usage "bwCreateItem: will shove an item in bitwarden using cli, log in first
+args:
+n/name: name to store new item under
+u/username: username for new item
+p/pass: password to use (optional)
+l/url: url used to login (optional, can be multiple)
+f/folder: folder to store password in (optional)
+"
+
+if not command -v bw > /dev/null 2>&1 or not command -v jq > /dev/null 2>&1
+    echo "missing bw or jq, whaddya expect me to do?" >&2
+    echo $_bwCreateItem_usage >&2
+    return 1
+end
+
+if not bw sync --nointeraction > /dev/null 2>&1
+    echo "not logged in or unlocked" >&2
+    echo $_bwCreateItem_usage 
+    return 1
+end
+
+if test -z "$_flag_n"
+    echo "need a name for the item" >&2
+    echo $_bwCreateItem_usage >&2
+    return 1
+end
+
+if test -z "$_flag_u"
+    echo "need a username for the item" >&2
+    echo $_bwCreateItem_usage >&2
+    return 1
+end
+
+if test -z "$_flag_p"
+    set _bwCreateItem_password (bw generate)
+else
+    set _bwCreateItem_password $_flag_p
+end
+
+if test -n "$_flag_l"
+    for _bwCreateItem_uri in $_flag_l
+        set -a _bwCreateItem_urlComm  " | .uris[.uris| length] |= . + {\"uri\": \"$_bwCreateItem_uri\"}"
+    end
+end
+
+# echo $_bwCreateItem_urlComm >&2
+
+if test -n "$_flag_f"
+    set _bwCreateItem_folderId (bw list folders --search $_flag_f | jq ".[].id")
+    
+    if test -n "$_bwCreateItem_folderId"
+        set _bwCreateItem_folder " | .folderId=$_bwCreateItem_folderId"
+    else
+        echo "folder id wasn't found" >&2
+    end
+end
+
+set _bwCreateItem_login (bw get template item.login | jq ".username=\"$_flag_u\" | .password=\"$_bwCreateItem_password\"$_bwCreateItem_urlComm")
+
+# echo $_bwCreateItem_login
+
+set _bwCreateItem_item  (bw get template item | jq ".name=\"$_flag_n\"$_bwCreateItem_folder | .notes=null | .login=$_bwCreateItem_login")
+
+echo $_bwCreateItem_item | jq >&2
+
+echo $_bwCreateItem_item | bw encode | bw create item
