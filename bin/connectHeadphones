@@ -1,7 +1,9 @@
 #!/usr/bin/env fish
-# use bluez
+# use bluez, connect headphones, profit
 
 bluetoothctl power on
+
+bluetoothctl connect F8:4E:17:D9:7A:BB
 
 # bluetoothctl scan on | 
 #     while read -d '\n' blueline;
@@ -14,9 +16,6 @@ bluetoothctl power on
 # timeout 20 bluetoothctl scan on &
 
 # wait 4
-
-bluetoothctl connect F8:DF:15:34:E6:38
-
 
 #(bluetoothctl scan on &) | grep "F8:DF:15:34:E6:38" && bluetoothctl pair F8:DF:15:34:E6:38
 
