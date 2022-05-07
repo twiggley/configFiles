@@ -15,5 +15,11 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 #"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 for CONF in ${DEFAULT_CONFIG_PREFIX} ${@}; do
-    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONF}${CONFIG_SUFFIX}"
+    if [[ "$CONF" == *"$CONFIG_SUFFIX"* ]]; then
+        COMBINED="$CONF"
+    else
+        COMBINED="$CONF$CONFIG_SUFFIX"
+    fi
+    # "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONF}${CONFIG_SUFFIX}"
+    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "$COMBINED"
 done
