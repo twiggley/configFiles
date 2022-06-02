@@ -3,7 +3,16 @@
 
 bluetoothctl power on
 
-bluetoothctl connect F8:4E:17:D9:7A:BB
+set headphoneCode "F8:4E:17:D9:7A:BB"
+
+if not bluetoothctl connect $headphoneCode
+    timeout 10 bluetoothctl -- scan on &
+    sleep 10
+    bluetoothctl -- scan off
+    bluetoothctl pair $headphoneCode
+    bluetoothctl trust $headphoneCode
+    bluetoothctl connect $headphoneCode
+end
 
 # bluetoothctl scan on | 
 #     while read -d '\n' blueline;
