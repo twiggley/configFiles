@@ -1,12 +1,6 @@
 #!/usr/bin/env fish
 
 # echo $argv
-
-argparse 'u/username=' 'n/name=' 'p/pass=' 'l/url=+' 'r/help' 'f/folder=' -- $argv
-or return 
-
-# echo "variables: name: $_flag_n , user: $_flag_u , pass: $_flag_p, url: $_flag_l, folder: $_flag_f" >&2
-
 set _bwCreateItem_usage "bwCreateItem: will shove an item in bitwarden using cli, log in first
 args:
 n/name: name to store new item under
@@ -15,6 +9,18 @@ p/pass: password to use (optional)
 l/url: url used to login (optional, can be multiple)
 f/folder: folder to store password in (optional)
 "
+
+if test (count $argv) -lt 2
+    echo "missing args!" >&2
+    echo $_bwCreateItem_usage >&2
+    return 1
+end
+
+argparse 'u/username=' 'n/name=' 'p/pass=' 'l/url=+' 'r/help' 'f/folder=' -- $argv
+or return 
+
+# echo "variables: name: $_flag_n , user: $_flag_u , pass: $_flag_p, url: $_flag_l, folder: $_flag_f" >&2
+
 
 if not command -v bw > /dev/null 2>&1 or not command -v jq > /dev/null 2>&1
     echo "missing bw or jq, whaddya expect me to do?" >&2

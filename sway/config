@@ -28,6 +28,9 @@ set $menu exec $term --class=launcher -e /usr/bin/sway-launcher-desktop
 # Your preferred web browser?
 set $browser firefox
 
+# workspaces default to stacking
+workspace_layout stacking
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
