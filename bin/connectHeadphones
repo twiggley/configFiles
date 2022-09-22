@@ -3,7 +3,14 @@
 
 bluetoothctl power on
 
-set headphoneCode "F8:4E:17:D9:7A:BB"
+if test -n "$argv[1]"
+    set headphoneCode "$argv[1]"
+else
+    set headphoneCode "F8:4E:17:D9:7A:BB"
+end
+
+echo "trying to connect to $headphoneCode"
+
 
 if not bluetoothctl connect $headphoneCode
     timeout 10 bluetoothctl -- scan on &
