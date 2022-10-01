@@ -244,7 +244,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
 
 # screenshot
-bindsym Print exec GRIM_DEFAULT_DIR=~/files/screenies/ grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+bindsym Control+Print exec screenshotWayland workspaceDirectory
+bindsym Control+Shift+Print exec screenshotWayland workspaceClipboard
+bindsym Print exec screenshotWayland windowDirectory
+bindsym Shift+Print exec screenshotWayland windowClipboard
 
 #
 # general settings
@@ -259,6 +262,9 @@ font Liberation Sans 10
 # size
 titlebar_border_thickness 1
 titlebar_padding 2
+
+# default_border pixel 0
+# default_floating_border pixel 0
 
 
 #

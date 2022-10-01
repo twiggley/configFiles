@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# 
+# hacky script wrapper for grim screenshot
+
+screenshotMode=$1
+
+if [ -z "$2"] 
+then
+	outputDir="~/files/screenies"
+else
+	outputDir=$2
+fi
+
+
+if [ -z "$screenshotMode" ]
+then
+	echo "no param provided, exiting" 1>&2
+	exit 1
+fi
+
+case "$screenshotMode" in
+	workspaceDirectory)
+		# screenshot workspace to dir
+		GRIM_DEFAULT_DIR=~/files/screenies/ grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+		;;
+	workspaceClipboard)
+		# screenshot workspace to clipboard
+		grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+		;;
+	windowDirectory)
+		# screenshot window to dir
+		GRIM_DEFAULT_DIR=~/files/screenies/ grim -g "$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"' | tr -d '"')"
+		;;
+	windowClipboard)
+		# screenshot window to clipboard
+		grim -g "$(swaymsg -t get_tree | jq  '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"' | tr -d '"')" - | wl-copy
+		;;
+	*)
+		echo "unknown screenshotMode" 1>&2
+		exit 1
+		;;
+esac
+
+
