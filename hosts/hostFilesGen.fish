@@ -22,7 +22,9 @@ if test $host_profile = "roughboi"
 
 else if test $host_profile = "shinyboi"
     cp -r sway "$generated_dir"
-    sed -E "s/(output \* bg )([^ ]+)( fill)/\1\~\/Downloads\/5053_astro.png\3/g" sway/config > "$generated_dir/sway/config"
+    sed -E "s/(output \* bg )(.*)/\1\~\/Downloads\/normal_ParanornalFLAT.png fit/g" sway/config > "$generated_dir/sway/configtemp"
+    sed -E "s/firefox/librewolf/g" "$generated_dir/sway/configtemp" > "$generated_dir/sway/config"
+    rm "$generated_dir/sway/configtemp"
 
     cp -r waybar "$generated_dir"
     sed -E "s/(\@import \"colors\/)([^ \"]+)(\"\;)/\1base16-monokai.css\3/g" waybar/style.css > "$generated_dir/waybar/style.css"
