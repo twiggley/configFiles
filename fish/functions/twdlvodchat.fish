@@ -20,9 +20,9 @@ function twdlvodchat --description "download twitch vod, chat to folder.first ar
     else
         echo about to download
         echo $__twdlvodchat_vod_number > $__twdlvodchat_output_location/$__twdlvodchat_vod_number
-        TwitchDownloaderCLI -o $__twdlvodchat_output_location_vod -m VideoDownload -u $__twdlvodchat_vod_number --temp-path $__twdlvodchat_output_location
+        TwitchDownloaderCLI videodownload -o $__twdlvodchat_output_location_vod -u $__twdlvodchat_vod_number --temp-path $__twdlvodchat_output_location
         
-        TwitchDownloaderCLI -o $__twdlvodchat_output_location_chat -m ChatDownload -u $__twdlvodchat_vod_number --temp-path $__twdlvodchat_output_location
+        TwitchDownloaderCLI chatdownload -o $__twdlvodchat_output_location_chat -u $__twdlvodchat_vod_number --temp-path $__twdlvodchat_output_location
 
     end
         
