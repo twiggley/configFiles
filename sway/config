@@ -21,6 +21,8 @@ set $term alacritty
 #set $menu bemenu-run
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
+for_window [app_id="^Dolphin"] floating enable
+
 # sway-launcher-desktop things
 for_window [app_id="^launcher$"] floating enable, sticky enable, border pixel 10
 set $menu exec $term --class=launcher -e /usr/bin/sway-launcher-desktop
