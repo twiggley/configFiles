@@ -92,6 +92,10 @@ input "type:touchpad" {
 	dwt enabled
 }
 
+input "type:pointer" {
+	pointer_accel 0.95
+}
+
 ### Key bindings
 #
 # Basics:
