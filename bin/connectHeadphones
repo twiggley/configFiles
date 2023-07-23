@@ -17,7 +17,7 @@ if not bluetoothctl connect $headphoneCode
     sleep 10
     bluetoothctl -- scan off
     bluetoothctl pair $headphoneCode
-    bluetoothctl trust $headphoneCode
+    # bluetoothctl trust $headphoneCode
     bluetoothctl connect $headphoneCode
 end
 
