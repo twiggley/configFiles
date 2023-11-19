@@ -22,7 +22,7 @@ set $term alacritty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 for_window [app_id="^Dolphin"] floating enable
-for_window [instance="^Godot_Engine"] floating enable
+for_window [instance="^Godot_"] floating enable
 
 # sway-launcher-desktop things
 for_window [app_id="^launcher$"] floating enable, sticky enable, border pixel 10
