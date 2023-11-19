@@ -10,4 +10,8 @@ waybar
 i3
 polybar
 alacritty
+tmux
+hx
+fd
+bat
 
