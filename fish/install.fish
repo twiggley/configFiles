@@ -13,6 +13,7 @@ jorgebucaran/fisher \
 patrickf1/fzf.fish \
 twiggley/base16-fish \
 danhper/fish-ssh-agent \
+jethrokuan/z \
 
 set -a existing_fisher_plugins (fisher list)
 set -a extra_plugins $existing_fisher_plugins
