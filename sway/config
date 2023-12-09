@@ -48,9 +48,9 @@ output * bg ~/Downloads/themindasashoclwave.jpg fill
 #output DP-2 pos 0 0
 #output DP-1 pos 1600 0
 #output HDMI-A-1 pos 3520 0
-output DP-2 pos 0 0
+output DP-1 pos 0 0
 output DP-3 pos 1600 0
-output DP-1 pos 4160 0
+output DP-2 pos 4160 0
 
 ### Idle configuration
 #
