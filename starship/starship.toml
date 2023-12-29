@@ -6,3 +6,5 @@ show_always = true
 truncation_length = 0
 truncate_to_repo = false
 
+[sudo]
+disabled = false

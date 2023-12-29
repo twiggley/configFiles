@@ -33,7 +33,9 @@
       glob: true
       path: fish/functions/*
     ~/.vim/autoload/plug.vim: vim/plug.vim
-    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
+    ~/.config/alacritty:
+      path: alacritty
+      force: true
     ~/.config/waybar: waybar
     ~/.config/sway: sway
     ~/.config/swaylock: swaylock
