@@ -1,43 +1,42 @@
-(defwindow main
-           :monitor 2
+(defvar time-visible false)
+
+(defpoll calendarcustom :interval "60s"
+                   :initial "Reading"
+  `cal`)
+
+(defpoll date-time :interval "1s"
+                   :initial "Reading"
+                   :run-while time-visible
+  `date "+%a, %b %d %H:%M:%S"`)
+
+(defwindow topmain
+           :monitor 0
            :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
+                               :y "0%"
+                               :width "100%"
                                :height "30px"
                                :anchor "top center")
            :stacking "fg"
-           ;:reserve (struts :distance "40px" :side "top")
+           :reserve (struts :distance "30px" :side "top")
            :windowtype "dock"
            :wm-ignore false
   ;"example content"
   (bar))
 
 (defwidget bar[]
-;  (greeter :text "hmm"
-;           :name "twiggy")
-  (labeled-container :name "${date-time}"
-    (button :onclick "notify-send hey ho"
-    "click me")))
+  (centerbox :orientation "h"
+    (box     :space-evenly false
+      (date-time))
+    (box     :space-evenly false
+      (label :text "workspaces"))
+    (box     :space-evenly false 
+             :halign "end"
+      (label :text "right"))))
 
 (defwidget date-time []
-  (box(label   :text "${date-time}")))
+  (box       :space-evenly false
+    (tooltip
+      (calendar)
+      (label   :text " ${date-time}")))
+)
 
-
-(defwidget greeter [?text name]
-  (box :orientation "horizontal"
-       :halign "center"
-    text
-    (button :onclick "notify-send 'Oi' 'Oi, ${name}'"
-      "Greet")))
-
-(defwidget labeled-container [name]
-  (box :class "container"
-    name
-    (children)))
-
-(defvar time-visible false)
-
-(defpoll date-time :interval "1s"
-                   :initial "Reading"
-                   :run-while time-visible
-  `date "+%a, %b %d %H:%M:%S"`)
