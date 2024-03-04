@@ -37,6 +37,7 @@
       path: alacritty
       force: true
     ~/.config/waybar: waybar
+    ~/.config/eww: eww
     ~/.config/sway: sway
     ~/.config/swaylock: swaylock
     ~/.config/polybar: polybar

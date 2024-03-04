@@ -8,4 +8,4 @@
 #xrandr --output DP-1 --right-of DP-3
 
 # set primary monitor for x/wayland reasons (chonkyboi)
-xrandr --output DP-3 --primary
+xrandr --output DP-1 --primary
