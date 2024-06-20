@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+#
+# calculates position of position in nether or overworld
+
+USAGE="calculates position in nether or overworld respectively\n
+input of form:\n\n
+n 45 65 4\n\n
+where n is n or o for nether/overworld - this is what your coords are in. script then prints both\n
+other args are XYZ\n
+if only 2 numbers, it'll be XZ\n"
+
+
+
+
+if [[ ${#} < 3 ]]; then
+	echo -e $USAGE
+	exit 1
+fi
+
+DIMENSION=$1
+INPUT_X=$2
+if [[ ${#} == 3 ]]; then
+	INPUT_Z=$3
+else
+	INPUT_Y=$3
+	INPUT_Z=$4
+fi
+
+if [[ ${DIMENSION} == 'n' ]]; then
+	N_X="$((INPUT_X))"
+	O_X="$((INPUT_X/8))"
+	N_Y="$((INPUT_Y))"
+	O_Y="$((INPUT_Y/8))"
+	N_Z="$((INPUT_Z))"
+	O_Z="$((INPUT_Z/8))"
+elif [[ ${DIMENSION} == 'o' ]]; then
+	O_X="$((INPUT_X))"
+	N_X="$((INPUT_X/8))"
+	O_Y="$((INPUT_Y))"
+	N_Y="$((INPUT_Y/8))"
+	O_Z="$((INPUT_Z))"
+	N_Z="$((INPUT_Z/8))"
+else
+	echo "didn't understand dimension"
+	echo -e $USAGE
+	exit 1
+fi
+
+
+echo "
+nether: $N_X $N_Y $N_Z
+overworld: $O_X $O_Y $O_Z
+"
+
+

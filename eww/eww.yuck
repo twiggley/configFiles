@@ -1,3 +1,5 @@
+(include "revealer.yuck")
+
 (defvar time-visible false)
 
 (defpoll calendarcustom :interval "60s"
@@ -8,6 +10,10 @@
                    :initial "Reading"
                    :run-while time-visible
   `date "+%a, %b %d %H:%M:%S"`)
+
+(deflisten workspaces-raw :initial "{\"change\": \"crap\"}"
+  `swaymsg -m -t subscribe [\\"workspace\\"]`
+)
 
 (defwindow topmain
            :monitor 0
@@ -28,7 +34,7 @@
     (box     :space-evenly false
       (date-time))
     (box     :space-evenly false
-      (label :text "workspaces"))
+      (label :text "workspaces : ${workspaces-raw.change}"))
     (box     :space-evenly false 
              :halign "end"
       (label :text "right"))))
@@ -37,6 +43,6 @@
   (box       :space-evenly false
     (tooltip
       (calendar)
-      (label   :text " ${date-time}")))
-)
+      (label   :text " ${date-time}"))))
+
 

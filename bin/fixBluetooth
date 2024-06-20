@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+# very annoying bug where driver fails and requries full power off
+# https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1859592
+
+
+# this is a weird workaround that worked once
+
+sudo rmmod btusb
+sudo modprobe btusb
+
+sudo systemctl restart bluetooth
+
+

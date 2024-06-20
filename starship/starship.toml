@@ -8,3 +8,6 @@ truncate_to_repo = false
 
 [sudo]
 disabled = false
+
+[conda]
+disabled = true

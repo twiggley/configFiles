@@ -27,6 +27,14 @@ case "$screenshotMode" in
 		# screenshot workspace to clipboard
 		grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
 		;;
+	desktopDirectory)
+		# screenshot desktop to dir
+		GRIM_DEFAULT_DIR=~/files/screenies/ grim
+		;;
+	desktopClipboard)
+		# screenshot desktop to clipboard
+		grim - | wl-copy
+		;;
 	windowDirectory)
 		# screenshot window to dir
 		GRIM_DEFAULT_DIR=~/files/screenies/ grim -g "$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"' | tr -d '"')"
