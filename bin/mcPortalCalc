@@ -21,23 +21,25 @@ DIMENSION=$1
 INPUT_X=$2
 if [[ ${#} == 3 ]]; then
 	INPUT_Z=$3
+	COMMENT=$4
 else
 	INPUT_Y=$3
 	INPUT_Z=$4
+	COMMENT=$5
 fi
 
 if [[ ${DIMENSION} == 'n' ]]; then
 	N_X="$((INPUT_X))"
-	O_X="$((INPUT_X/8))"
+	O_X="$((INPUT_X*8))"
 	N_Y="$((INPUT_Y))"
-	O_Y="$((INPUT_Y/8))"
+	O_Y="$((INPUT_Y))"
 	N_Z="$((INPUT_Z))"
-	O_Z="$((INPUT_Z/8))"
+	O_Z="$((INPUT_Z*8))"
 elif [[ ${DIMENSION} == 'o' ]]; then
 	O_X="$((INPUT_X))"
 	N_X="$((INPUT_X/8))"
 	O_Y="$((INPUT_Y))"
-	N_Y="$((INPUT_Y/8))"
+	N_Y="$((INPUT_Y))"
 	O_Z="$((INPUT_Z))"
 	N_Z="$((INPUT_Z/8))"
 else
@@ -48,8 +50,9 @@ fi
 
 
 echo "
-nether: $N_X $N_Y $N_Z
+$COMMENT
 overworld: $O_X $O_Y $O_Z
+nether: $N_X $N_Y $N_Z
 "
 
 
