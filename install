@@ -1,25 +1,27 @@
 #!/usr/bin/env bash
 
-set -e
+# basic ass install thing until i decide what i want longer term solution
 
-DEFAULT_CONFIG_PREFIX="install"
-CONFIG_SUFFIX=".conf.yaml"
-DOTBOT_DIR="dotbot"
+# link
+ln -srf bin ~/bin
+ln -srf tmux/tmux.conf ~/.tmux.conf
+ln -srf git/gitalias.txt ~/.gitalias.txt
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
 
-#"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-for CONF in ${DEFAULT_CONFIG_PREFIX} ${@}; do
-    if [[ "$CONF" == *"$CONFIG_SUFFIX"* ]]; then
-        COMBINED="$CONF"
-    else
-        COMBINED="$CONF$CONFIG_SUFFIX"
-    fi
-    # "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONF}${CONFIG_SUFFIX}"
-    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "$COMBINED"
-done
+# git config
+git config --global include.path ~/.gitalias.txt
+git config --global alias.l "ll -n15"
+
+# tmux
+if [ ! -e ~/.tmux/plugins ]; then
+	echo "couldn't find tpm tmux plugin dir, creating"
+	mkdir -p ~/.tmux/plugins/
+fi
+
+if [ ! -e ~/.tmux/plugins/tpm ]; then
+	echo "couldn't find tpm plugin, cloning tpm"
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+# aliases

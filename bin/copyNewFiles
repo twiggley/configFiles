@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# use inotifywait to check for created files
+# if found, copy them to timestamped irectory
+
+copyfile() {
+		MONITOR_FOLDER="$1"
+		OUTPUT_FOLDER="$2"
+		file="$3"
+
+		
+		NEW_DIR_NAME="$OUTPUT_FOLDER/$(date -Iminutes)-$file"
+		echo "new output dir: $NEW_DIR_NAME"
+
+		CREATED_FILE="$MONITOR_FOLDER/$file"
+		echo "new file: $CREATED_FILE"
+
+		mkdir -p "$NEW_DIR_NAME"
+
+		cp -v --update=none "$CREATED_FILE" "$NEW_DIR_NAME"
+	
+}
+
+USAGE="
+first arg is monitor folder, second arg is output folder
+script will copy new files created in monitor folder to output folder"
+
+[ -z "$1" ] && echo "no monitor folder supplied!! $USAGE" && exit 1
+[ -z "$2" ] && echo "no ouput folder supplied!! $USAGE" && exit 1
+
+MONITOR_FOLDER="$1"
+OUTPUT_FOLDER="$2"
+
+echo "MONITOR_FOLDER $MONITOR_FOLDER"
+echo "OUTPUT_FOLDER $OUTPUT_FOLDER"
+
+# csv fails when an event has more than one name, which happens all the time damnit
+# inotifywait -m -c "$MONITOR_FOLDER" |
+# 	while IFS="," read dir event file; do
+# IM ASSUMING THAT YOUR FILE?FOLDER DOESNT CONTAIN |, if it does FUCK YOU
+inotifywait -m --format '%w|%e|%f' "$MONITOR_FOLDER" |
+ 	while IFS="|" read dir event file; do
+		# echo "$dir"
+		# echo "$event"
+		# echo "$file"
+		# have to check event is actually what we want
+		[[ $event == *CLOSE_WRITE* ]] && copyfile "$MONITOR_FOLDER" "$OUTPUT_FOLDER" "$file"
+	done
+		
+
+
+ 
