@@ -615,7 +615,7 @@
   #   * Short author field using name (no email address) and signature mark
   #   * Short layout without columns
   #
-  log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN]%Creset %Cblue%G?%Creset'
+  log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN]%Creset %Cblue%G?%Creset'
 
   # Show log  list with our preferred information with long formats, a.k.a. `lll`
   #
@@ -624,13 +624,13 @@
   #   * Long author field using name and email address and signature mark
   #   * Long layout with columns
   #
-  log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN <%aE>]%Creset %Cblue%G?%Creset'
+  log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN <%aE>]%Creset %Cblue%G?%Creset'
 
   # Show log for my own commits by my own user email
   log-my = "!git log --author \"$(git config user.email)\""
 
   # Show log as a graph
-  log-graph = log --graph --all --oneline --decorate
+  log-graph = log --graph --oneline --decorate
 
   # Show the date of the first (a.k.a. earliest) commit, in strict ISO 8601 format
   log-date-first = "!git log --date-order --format=%cI | tail -1"
@@ -697,7 +697,7 @@
   log-of-count-and-week-of-year  = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%V\" \"$@\"; }; f"
 
   # TODO
-  log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+  log-refs = log --graph --decorate --oneline --simplify-by-decoration --no-merges
   log-timeline = log --format='%h %an %ar - %s'
   log-local = log --oneline origin..HEAD
   log-fetched = log --oneline HEAD..origin/main
@@ -826,7 +826,7 @@
   #    13 Bob Brown
   #    7 Carol Clark
   #
-  churn = "!f() { git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn;};f"
+  churn = "!f() { git log --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn;};f"
 
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \

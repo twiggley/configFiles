@@ -9,7 +9,7 @@ copyfile() {
 		file="$3"
 
 		
-		NEW_DIR_NAME="$OUTPUT_FOLDER/$(date -Iminutes)-$file"
+		NEW_DIR_NAME="$OUTPUT_FOLDER/$(date "+%Y-%m-%dT%H%M%S")-$file"
 		echo "new output dir: $NEW_DIR_NAME"
 
 		CREATED_FILE="$MONITOR_FOLDER/$file"

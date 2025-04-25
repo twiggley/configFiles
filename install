@@ -6,6 +6,9 @@
 ln -srf bin ~/bin
 ln -srf tmux/tmux.conf ~/.tmux.conf
 ln -srf git/gitalias.txt ~/.gitalias.txt
+ln -srf helix ~/.config/
+ln -srf wireplumber ~/.config/
+ln -srf starship/starship.toml ~/.config/starship.toml
 
 
 

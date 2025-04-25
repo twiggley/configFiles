@@ -1,0 +1,6 @@
+## The WirePlumber configuration (overrides edition)
+
+
+wireplumber.settings = {
+  bluetooth.autoswitch-to-headset-profile = false
+}
