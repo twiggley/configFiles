@@ -2,12 +2,27 @@
 
 # basic ass install thing until i decide what i want longer term solution
 
-# link
+
+# make directories? maybe incomplete
+mkdir -p ~/.config/kak/
+mkdir -p ~/.tmux/plugins/
+
+
+# generallink
 ln -srf bin ~/bin
 ln -srf tmux/tmux.conf ~/.tmux.conf
 ln -srf git/gitalias.txt ~/.gitalias.txt
 ln -srf helix ~/.config/
 ln -srf wireplumber ~/.config/
+ln -srf sway ~/.config/
+ln -srf swaylock ~/.config/
+ln -srf wlogout ~/.config/
+ln -srf waybar ~/.config/
+ln -srf polybar ~/.config/
+ln -srf i3 ~/.config/
+ln -srf kak/kakrc ~/.config/kak/
+# not needed for chonky, while we're on cachy-os
+# ln -srf alacritty ~/.config/
 ln -srf starship/starship.toml ~/.config/starship.toml
 
 
@@ -17,14 +32,13 @@ git config --global include.path ~/.gitalias.txt
 git config --global alias.l "ll -n15"
 
 # tmux
-if [ ! -e ~/.tmux/plugins ]; then
-	echo "couldn't find tpm tmux plugin dir, creating"
-	mkdir -p ~/.tmux/plugins/
-fi
-
 if [ ! -e ~/.tmux/plugins/tpm ]; then
 	echo "couldn't find tpm plugin, cloning tpm"
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# fish
+fish/install.fish
+
 
 # aliases

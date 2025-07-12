@@ -1,2 +1,5 @@
 
 theme = "monokai"
+
+[keys.normal]
+"C-g" = "increment" # stop clash with C-a for tmux

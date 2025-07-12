@@ -5,23 +5,24 @@ if status --is-login
     #    pactl set-default-sink $headset_name
     #end
 
-    if test (tty) = '/dev/tty1'
+    if test (tty) = /dev/tty1
         # sway
-        if command -v sway > /dev/null 2>&1
-            exec sway > /tmp/sway-$USER-(date "+%y-%m-%dT%H%M%S").log 2>&1
-        # x
-        else if command -v startx > /dev/null 2>&1
-            exec startx > /tmp/startx-$USER-(date "+%y-%m-%dT%H%M%S").log 2>&1
-        # oh shit
+        if command -v sway >/dev/null 2>&1
+            exec sway >/tmp/sway-$USER-(date "+%y-%m-%dT%H%M%S").log 2>&1
+            # x
+        else if command -v startx >/dev/null 2>&1
+            exec startx >/tmp/startx-$USER-(date "+%y-%m-%dT%H%M%S").log 2>&1
+            # oh shit
         else
-            echo no display manager 
+            echo no display manager
         end
     end
+else
+    set -x GPG_TTY (tty)
 end
 
-set -Ux GPG_TTY (tty)
+set -Ux EDITOR vim
 
-if command -v starship > /dev/null 2>&1
+if command -v starship >/dev/null 2>&1
     starship init fish | source
 end
-

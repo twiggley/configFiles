@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-if functions -q fisher; 
+if functions -q fisher
     echo fisher already installed
 else
     # fisher
@@ -9,15 +9,13 @@ end
 
 # add new plugins to this list for them to be installed
 set -a desired_fisher_plugins \
-jorgebucaran/fisher \
-patrickf1/fzf.fish \
-twiggley/base16-fish \
-danhper/fish-ssh-agent \
-jethrokuan/z \
-
+    jorgebucaran/fisher \
+    patrickf1/fzf.fish \
+    #twiggley/base16-fish \
+    danhper/fish-ssh-agent \
+    jethrokuan/z
 set -a existing_fisher_plugins (fisher list)
 set -a extra_plugins $existing_fisher_plugins
-
 
 for desired in $desired_fisher_plugins
     if not contains $desired $existing_fisher_plugins
@@ -25,22 +23,17 @@ for desired in $desired_fisher_plugins
         fisher install $desired
     else
         echo "locally installed plugin found: $desired"
-		# remove the desired plugin, to create list of extra locally installed plugins
+        # remove the desired plugin, to create list of extra locally installed plugins
         set -e extra_plugins[(contains -i $desired $extra_plugins)]
     end
 end
 
 if string length -q $extra_plugins
-    echo "these are installed locally but not in desired list, maybe add to the main repo?
+    echo "these are installed locally but not in desired list, maybe add to install script?
     $extra_plugins"
 end
 
-# ayu initialise
-# set --universal ayu_variant light && ayu_load_theme
-
 # base16-darktooth
 # base16-qualia
-set mybase16 qualia
-base16-$mybase16
-
-
+# set mybase16 qualia
+# base16-$mybase16
