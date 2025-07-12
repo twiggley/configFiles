@@ -1,0 +1,198 @@
+# inspired by gitalias.com
+# notable changes:
+# add verbose in some places where original commands are unhelpfully brief
+# removed all from log commands because it can't be countermanded and it frustrates me greatly
+# didn't replace mention of "ours" - if you see that, ask the gitalias people :)
+
+
+  ### basic aliases ###
+a = add
+b = branch
+c = commit
+d = diff
+f = fetch
+g = grep
+l = log
+m = merge
+o = checkout
+p = pull
+s = status
+w = whatchanged
+
+### add aliases ###
+## add all
+aa = add --all
+
+# add by patch - looks at each change, and asks if we want to put it in the repo.
+ap = add --patch
+
+# add just the files that are updated.
+au = add --update
+
+### branch aliases ###
+
+# branch verbose: When in list mode, show the hash, the commit subject line, etc.
+# This is identical to doing `git b -v`.
+bv = branch --verbose
+
+# branch verbose verbose: When in list mode, show the hash the commit subject line, the upstream branch, etc.
+# This is identical to doing `git b -vv`.
+bvv = branch --verbose --verbose
+
+### commit aliases ###
+
+# commit - amend the tip of the current branch rather than creating a new commit.
+ca = commit --amend
+
+# commit - amend the tip of the current branch, and edit the message.
+cam = commit --amend --message
+
+# commit - amend the tip of the current branch, and do not edit the message.
+cane = commit --amend --no-edit
+
+# commit interactive
+ci = commit --interactive
+
+# commit with a message
+cm = commit --message
+
+### checkout aliases ###
+
+# checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
+co = checkout
+cong = checkout --no-guess
+
+# create a new branch from the current working tree, and switch to it
+cob = checkout -b
+
+### cherry-pick aliases ###
+
+# cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
+cp = cherry-pick
+
+# cherry-pick - abort the picking process
+cpa = cherry-pick --abort
+
+# cherry-pick - continue the picking process
+cpc = cherry-pick --continue
+
+# cherry-pick -n a.k.a. without making a commit
+cpn = cherry-pick --no-commit
+
+### diff aliases ###
+
+# Show changes not yet staged
+dc = diff --cached
+
+# Show changes about to be commited
+ds = diff --staged
+
+# Show changes but by word, not line
+dw = diff --word-diff
+
+### fetch aliases ###
+
+# Fetch all remotes
+fa = fetch --all
+
+# Fetch all remotes and use verbose output
+fav = fetch --all --verbose
+
+### log aliases ###
+
+# log with a text-based graphical representation of the commit history.
+lg = log --graph
+
+# log with one line per item.
+lo = log --oneline
+
+# log with patch generation.
+lp = log --patch
+
+# log list - Show log list with our preferred options, a.k.a. `log-list`
+ll = log-list
+
+# log list long - Show log list with our preferred options with long information, a.k.a. `log-list-long`
+lll = log-list-long
+
+# Show log list with our preferred information, a.k.a. `ll`
+#
+#   * Short date format using YYYY-MM-DD (no time, no zone)
+#   * Short hash commit format using abbreviated hexadecimal (not full hexadecimal)
+#   * Short author field using name (no email address) and signature mark
+#   * Short layout without columns
+#
+log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN]%Creset %Cblue%G?%Creset'
+
+# Show log  list with our preferred information with long formats, a.k.a. `lll`
+#
+#   * Long date format using iso8601 strict YYYY-MM-DDTHH:MM:SS+HH:MM
+#   * Long hash commit format using full hexadecimal displayed as name-rev
+#   * Long author field using name and email address and signature mark
+#   * Long layout with columns
+#
+log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN <%aE>]%Creset %Cblue%G?%Creset'
+
+### merge aliases ###
+
+# merge abort - cancel the merging process
+ma = merge --abort
+
+# merge - continue the merging process
+mc = merge --continue
+
+### pull aliases ###
+
+# pf - Pull if a merge can be resolved as a fast-forward, otherwise fail.
+pf = pull --ff-only
+
+### rebase aliases ###
+
+# rebase - forward-port local commits to the updated upstream head.
+rb = rebase
+
+# rebase abort - cancel the rebasing process
+rba = rebase --abort
+
+# rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
+rbc = rebase --continue
+
+# rebase - restart the rebasing process by skipping the current patch.
+rbs = rebase --skip
+
+# rebase interactive - do the rebase with prompts.
+rbi = rebase --interactive
+
+### reflog aliases ###
+
+# reflog - reference log that manages when tips of branches are updated.
+rl = reflog
+
+### remote aliases ###
+
+# remote - manage set of tracked repositories [same as "r"].
+rr = remote --verbose
+
+# remote show - gives some information about the remote <name>.
+rrs = remote show --verbose
+
+# remote - convenience alias from twig
+rv = remote show
+
+### revert aliases ###
+
+# revert - undo the changes from some existing commits
+rv = revert
+
+# revert without autocommit; useful when you're reverting more than one commits' effect to your index in a row.
+rvnc = revert --no-commit
+
+### status aliases ###
+
+# status with short format instead of full details
+ss = status --short
+
+# status with short format and showing branch and tracking info.
+ssb = status --short --branch
+
+
