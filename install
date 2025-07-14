@@ -2,17 +2,21 @@
 
 # basic ass install thing until i decide what i want longer term solution
 
-
 # make directories? maybe incomplete
 mkdir -p ~/.config/kak/
-mkdir -p ~/.tmux/plugins/
-
+mkdir -p ~/.config/fish/
 
 # generallink
 ln -srf bin ~/bin
 ln -srf tmux/tmux.conf ~/.tmux.conf
-ln -srf git/gitalias.txt ~/.gitalias.txt
+ln -srf fish/config.fish ~/.config/fish/
+# ln -srf git/gitalias.txt ~/.gitalias.txt
+ln -srf git/myGitAliases.txt ~/.gitalias.txt
 ln -srf helix ~/.config/
+ln -srf starship/starship.toml ~/.config/starship.toml
+ln -srf kak/kakrc ~/.config/kak/
+
+# graphics/desktop things, some of which quite outdated
 ln -srf wireplumber ~/.config/
 ln -srf sway ~/.config/
 ln -srf swaylock ~/.config/
@@ -20,25 +24,16 @@ ln -srf wlogout ~/.config/
 ln -srf waybar ~/.config/
 ln -srf polybar ~/.config/
 ln -srf i3 ~/.config/
-ln -srf kak/kakrc ~/.config/kak/
-# not needed for chonky, while we're on cachy-os
+# interferes with cachy-os, disabled for now
 # ln -srf alacritty ~/.config/
-ln -srf starship/starship.toml ~/.config/starship.toml
-
-
 
 # git config
 git config --global include.path ~/.gitalias.txt
-git config --global alias.l "ll -n15"
 
 # tmux
-if [ ! -e ~/.tmux/plugins/tpm ]; then
-	echo "couldn't find tpm plugin, cloning tpm"
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
+tmux/tmux.install
 
 # fish
 fish/install.fish
 
 
-# aliases

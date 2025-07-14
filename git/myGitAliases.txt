@@ -4,8 +4,11 @@
 # removed all from log commands because it can't be countermanded and it frustrates me greatly
 # didn't replace mention of "ours" - if you see that, ask the gitalias people :)
 
+### added aliases
+l = log-line -n15
 
-  ### basic aliases ###
+
+### basic aliases ###
 a = add
 b = branch
 c = commit

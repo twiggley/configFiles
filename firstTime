@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# first time setup? some thought needed on different OS installing and such
+
+# check packages.txt for packages to install
+# graphics pacakges not included - some are listed here
+# 
+# sway
+# waybar
+# i3
+# polybar
+# alacritty
+
+# archlinux
+# cat packages.txt | sudo pacman -Syu -
+#
+# helper
+# sudo pacman -S base-devel
+# mkdir -p ~/apps
+# cd ~/apps
+# git clone https://aur.archlinux.org/paru.git
+# cd paru
+# makepkg -si
+
+# fish
+# should put universal (and useful) variables here
+fish/firstTime.fish
