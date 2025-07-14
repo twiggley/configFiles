@@ -38,4 +38,4 @@ fish/install.fish
 
 # link fish functions
 
-
+find fish/functions/ -type f -exec ln -srf {} ~/.config/{} \;
