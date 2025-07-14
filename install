@@ -36,4 +36,6 @@ tmux/tmux.install
 # fish
 fish/install.fish
 
+# link fish functions
+
 
